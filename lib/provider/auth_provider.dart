@@ -1,5 +1,7 @@
 import 'package:ecommerce_app_gsg/data/authHelper.dart';
+import 'package:ecommerce_app_gsg/data/fireStore_helper.dart';
 import 'package:ecommerce_app_gsg/router/router.dart';
+import 'package:ecommerce_app_gsg/views/screen/categories_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:string_validator/string_validator.dart';
@@ -9,8 +11,14 @@ import '../views/home/home_screen.dart';
 class AuthProvider extends ChangeNotifier {
   GlobalKey<FormState> loginKey = GlobalKey();
   GlobalKey<FormState> signUpKey = GlobalKey();
+
+  GlobalKey<FormState> Keylogin = GlobalKey();
+  GlobalKey<FormState> registerKey = GlobalKey();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
 
   nullValidation(String? value) {
     if (value == null || value.isEmpty) {
@@ -27,6 +35,11 @@ class AuthProvider extends ChangeNotifier {
   passwordValidation(String value) {
     if (value.length < 6) {
       return ' يجب ان تكون كلمة السر 6 حروف على الاقل';
+    }
+  }
+  phoneValidation(String value) {
+    if (value.length < 9) {
+      return '   يجب ان تكون رقم الجوال يساوي 10';
     }
   }
   checkUser(){
@@ -48,7 +61,7 @@ class AuthProvider extends ChangeNotifier {
       UserCredential? credential = await AuthHelper.authHelper
           .signUp(emailController.text, passwordController.text);
       if (credential != null) {
-        AppRouter.NavigateWithReplacemtnToWidget(HomeScreen());
+        AppRouter.NavigateWithReplacemtnToWidget(CategoriesScreen());
       }
 
     }
@@ -60,4 +73,11 @@ class AuthProvider extends ChangeNotifier {
   SignOut(){
     AuthHelper.authHelper.signOut();
   }
+  Register()async{
+    AuthHelper.authHelper.signUp(emailController.text, passwordController.text);
+  }
+  login()async{
+    AuthHelper.authHelper.signIn(emailController.text, passwordController.text);
+  }
+
 }
