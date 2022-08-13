@@ -51,7 +51,7 @@ class AuthProvider extends ChangeNotifier {
       UserCredential? credential = await AuthHelper.authHelper
           .signIn(emailController.text, passwordController.text);
       if (credential != null) {
-        AppRouter.NavigateWithReplacemtnToWidget(HomeScreen());
+        AppRouter.NavigateWithReplacemtnToWidget(CategoriesScreen());
       }
 
     }

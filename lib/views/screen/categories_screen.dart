@@ -1,6 +1,8 @@
 import 'package:ecommerce_app_gsg/provider/auth_provider.dart';
 import 'package:ecommerce_app_gsg/provider/firestore_provider.dart';
 import 'package:ecommerce_app_gsg/router/router.dart';
+import 'package:ecommerce_app_gsg/views/screen/product_screen/add_product_screen.dart';
+import 'package:ecommerce_app_gsg/views/screen/product_screen/all_product_screen.dart';
 import 'package:ecommerce_app_gsg/views/widget/categories_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -29,7 +31,12 @@ class CategoriesScreen extends StatelessWidget {
               : ListView.builder(
                   itemCount: provider.categories!.length,
                   itemBuilder: (context, index) {
-                    return CategoryWidget(provider.categories![index]);
+                    return InkWell(
+                      onTap: (){
+                        provider.getAllProduct(provider.categories![index].catId);
+                        AppRouter.NavigateToWidget(AllProductScreen(provider.categories![index].catId));
+                      },
+                        child: CategoryWidget(provider.categories![index]));
                   },
                 );
         },
