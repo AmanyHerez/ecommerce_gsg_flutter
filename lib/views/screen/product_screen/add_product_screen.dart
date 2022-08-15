@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../provider/firestore_provider.dart';
-import 'custome_textfeild_product.dart';
+import '../../widget/custome_textfeild_product.dart';
 class AddProductScreen extends StatelessWidget {
  String? catId;
  AddProductScreen(this.catId);

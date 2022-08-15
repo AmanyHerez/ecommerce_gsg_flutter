@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../provider/firestore_provider.dart';
-import 'custome_textfeild_product.dart';
+import '../../widget/custome_textfeild_product.dart';
 class UpdateProductScreen extends StatelessWidget {
  Product product;
  String catId;

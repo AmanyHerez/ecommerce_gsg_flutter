@@ -2,6 +2,7 @@ import 'package:ecommerce_app_gsg/provider/auth_provider.dart';
 import 'package:ecommerce_app_gsg/provider/firestore_provider.dart';
 import 'package:ecommerce_app_gsg/router/router.dart';
 import 'package:ecommerce_app_gsg/views/auth/screen/sign_in_screen.dart';
+import 'package:ecommerce_app_gsg/views/auth/screen/sign_up_screen.dart';
 import 'package:ecommerce_app_gsg/views/screen/categories_screen.dart';
 import 'package:ecommerce_app_gsg/views/screen/splach_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         navigatorKey: AppRouter.navKey,
         //key: AppRouter.navKey,
-        home: CategoriesScreen(),
+        home: SignUpScreen(),
       ),
     );
   }

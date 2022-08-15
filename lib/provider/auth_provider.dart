@@ -12,13 +12,14 @@ class AuthProvider extends ChangeNotifier {
   GlobalKey<FormState> loginKey = GlobalKey();
   GlobalKey<FormState> signUpKey = GlobalKey();
 
-  GlobalKey<FormState> Keylogin = GlobalKey();
-  GlobalKey<FormState> registerKey = GlobalKey();
+  //GlobalKey<FormState> Keylogin = GlobalKey();
+  //GlobalKey<FormState> registerKey = GlobalKey();
+  TextEditingController fullNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController usernameController = TextEditingController();
-  TextEditingController cityController = TextEditingController();
+  // TextEditingController phoneController = TextEditingController();
+  // TextEditingController usernameController = TextEditingController();
+  // TextEditingController cityController = TextEditingController();
 
   nullValidation(String? value) {
     if (value == null || value.isEmpty) {
