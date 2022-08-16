@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../screen/update_category_screen.dart';
+import '../screen/category_screen/update_category_screen.dart';
 
 class CategoryWidget extends StatelessWidget {
   Category category;

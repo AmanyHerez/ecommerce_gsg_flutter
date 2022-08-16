@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../provider/firestore_provider.dart';
+import '../../../provider/firestore_provider.dart';
 
 class UpdateCategoryScreen extends StatelessWidget {
   Category category;

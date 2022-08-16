@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../provider/firestore_provider.dart';
+import '../../../provider/firestore_provider.dart';
 
 class AddCategoryScreen extends StatelessWidget {
   const AddCategoryScreen({Key? key}) : super(key: key);

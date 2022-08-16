@@ -17,6 +17,14 @@ class CategoriesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('All Categories'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Provider.of<AuthProvider>(context, listen: false).SignOut();
+            },
+            icon: Icon(Icons.logout),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

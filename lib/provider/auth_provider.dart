@@ -1,7 +1,7 @@
 import 'package:ecommerce_app_gsg/data/authHelper.dart';
 import 'package:ecommerce_app_gsg/data/fireStore_helper.dart';
 import 'package:ecommerce_app_gsg/router/router.dart';
-import 'package:ecommerce_app_gsg/views/screen/categories_screen.dart';
+import 'package:ecommerce_app_gsg/views/screen/category_screen/categories_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:string_validator/string_validator.dart';
