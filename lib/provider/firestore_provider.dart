@@ -4,6 +4,7 @@ import 'package:ecommerce_app_gsg/data/fireStore_helper.dart';
 import 'package:ecommerce_app_gsg/data/storage_helper.dart';
 import 'package:ecommerce_app_gsg/models/category.dart';
 import 'package:ecommerce_app_gsg/models/product.dart';
+import 'package:ecommerce_app_gsg/models/slider_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -11,6 +12,7 @@ import 'package:image_picker/image_picker.dart';
 class FireStoreProvider extends ChangeNotifier {
   FireStoreProvider() {
     getAllCategories();
+    getAllSlider();
   }
 
   TextEditingController categoryNameController = TextEditingController();
@@ -23,6 +25,7 @@ class FireStoreProvider extends ChangeNotifier {
   File? selectedImage;
   List<Category>? categories = [];
   List<Product>? products = [];
+  List<SliderModel>? sliders = [];
 
   selectImage() async {
     XFile? xFile = await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -108,6 +111,23 @@ class FireStoreProvider extends ChangeNotifier {
   deleteProduct(Product product,String catId) async {
     await FireStoreHelper.fireStoreHelper.deleteProduct(product, catId);
     getAllProduct(catId);
+  }
+  addNewSlider() async {
+    if (selectedImage != null) {
+      String imageUrl =
+      await StorageHelper.storageHelper.uploadImage(selectedImage!);
+      SliderModel sliderModel =
+      SliderModel(imageUrl: imageUrl);
+      SliderModel newSlider =
+      await FireStoreHelper.fireStoreHelper.addNewSlider(sliderModel);
+      selectedImage = null;
+      sliders!.add(newSlider);
+    }
+  }
+
+  getAllSlider() async {
+    sliders = await FireStoreHelper.fireStoreHelper.getAllSlider();
+    notifyListeners();
   }
 
 // insertNewCategory(){

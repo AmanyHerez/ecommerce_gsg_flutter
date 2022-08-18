@@ -1,7 +1,7 @@
 import 'dart:ffi';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ecommerce_app_gsg/models/category.dart';
+import 'package:ecommerce_app_gsg/models/slider_model.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:shimmer/shimmer.dart';
@@ -9,7 +9,7 @@ import 'package:shimmer/shimmer.dart';
 
 
 class CarouselWithIndicator extends StatefulWidget {
-  final List<Category> data;
+  final List<SliderModel> data;
 
   const CarouselWithIndicator({Key? key, required this.data}) : super(key: key);
   @override

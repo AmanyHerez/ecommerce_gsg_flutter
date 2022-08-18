@@ -28,7 +28,7 @@ class CategoriesScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-        AppRouter.NavigateToWidget(AddCategoryScreen());
+          AppRouter.NavigateToWidget(AddCategoryScreen());
         },
         child: Icon(Icons.add),
       ),
@@ -40,11 +40,14 @@ class CategoriesScreen extends StatelessWidget {
                   itemCount: provider.categories!.length,
                   itemBuilder: (context, index) {
                     return InkWell(
-                      onTap: (){
-                        provider.getAllProduct(provider.categories![index].catId);
-                        AppRouter.NavigateToWidget(AllProductScreen(provider.categories![index].catId));
+                      onTap: () {
+                        provider
+                            .getAllProduct(provider.categories![index].catId);
+                        AppRouter.NavigateToWidget(AllProductScreen(
+                            provider.categories![index].catId));
                       },
-                        child: CategoryWidget(provider.categories![index]));
+                      child: CategoryWidget(provider.categories![index]),
+                    );
                   },
                 );
         },

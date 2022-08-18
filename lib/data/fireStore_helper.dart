@@ -4,6 +4,7 @@ import 'package:ecommerce_app_gsg/models/product.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../models.dart';
+import '../models/slider_model.dart';
 
 class FireStoreHelper {
   FireStoreHelper._();
@@ -81,6 +82,31 @@ class FireStoreHelper {
         .collection('products')
         .doc(product.id)
         .delete();
+  }
+  CollectionReference<Map<String, dynamic>> sliderCollectionReferance =
+  FirebaseFirestore.instance.collection("sliders");
+
+  Future<SliderModel> addNewSlider(SliderModel sliderModel) async {
+    DocumentReference<Map<String, dynamic>> documentReference =
+    await sliderCollectionReferance.add(sliderModel.toMap());
+    sliderModel.id = documentReference.id;
+    return sliderModel;
+  }
+
+  Future<List<SliderModel>> getAllSlider() async {
+    QuerySnapshot<Map<String, dynamic>> querySnapshot =
+    await sliderCollectionReferance.get();
+    List<QueryDocumentSnapshot<Map<String, dynamic>>> documents =
+        querySnapshot.docs;
+    List<SliderModel> sliders = documents.map((e) {
+      //رح تجيب الماب اللا جوا
+      SliderModel sliderModel = SliderModel.fromMap(e.data());
+
+      sliderModel.id = e.id;
+      return sliderModel;
+    }).toList();
+
+    return sliders;
   }
 
 // insertDummyDataInFireStore()async{
