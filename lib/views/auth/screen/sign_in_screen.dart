@@ -41,6 +41,7 @@ class SignInScreen extends StatelessWidget {
                       style: TextStyle(
                           color: KblackColor,
                           fontSize: 30,
+                          fontFamily: 'Courgette-Regular',
                           fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
@@ -50,6 +51,7 @@ class SignInScreen extends StatelessWidget {
                       'please enter your email address below to start \n using app',
                       style: TextStyle(
                         color: KBoldgreeyColor,
+                        fontFamily: 'Courgette-Regular',
                         height: 1.5,
                       ),
                     ),
@@ -71,7 +73,9 @@ class SignInScreen extends StatelessWidget {
                       controller: provider.passwordController,
                       textInputType: TextInputType.visiblePassword,
                     ),
-                    SizedBox(height: 8,),
+                    SizedBox(
+                      height: 8,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -82,7 +86,10 @@ class SignInScreen extends StatelessWidget {
                             },
                             child: Text(
                               'forget Password?',
-                              style: TextStyle(color: KorangeColor),
+                              style: TextStyle(
+                                color: KorangeColor,
+                                fontFamily: 'Courgette-Regular',
+                              ),
                             )),
                       ],
                     ),
@@ -104,6 +111,7 @@ class SignInScreen extends StatelessWidget {
                           child: Text(
                             'Sign In',
                             style: TextStyle(
+                              fontFamily: 'Courgette-Regular',
                               color: Colors.white,
                               fontSize: 18,
                             ),
@@ -121,15 +129,18 @@ class SignInScreen extends StatelessWidget {
                           'Not a member? ',
                           style: TextStyle(
                             color: Colors.black87,
+                            fontFamily: 'Courgette-Regular',
                           ),
                         ),
                         InkWell(
                           onTap: () {
-                            AppRouter.NavigateWithReplacemtnToWidget(SignUpScreen());
+                            AppRouter.NavigateWithReplacemtnToWidget(
+                                SignUpScreen());
                           },
                           child: Text(
                             'join now',
                             style: TextStyle(
+                              fontFamily: 'Courgette-Regular',
                               color: KorangeColor,
                             ),
                           ),

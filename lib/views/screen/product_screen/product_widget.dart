@@ -6,9 +6,9 @@ import '../../../provider/firestore_provider.dart';
 import '../../../router/router.dart';
 import 'update_product_screen.dart';
 class ProductWidget extends StatelessWidget {
- Product product;
- String catId;
- ProductWidget(this.product,this.catId);
+  Product product;
+  String catId;
+  ProductWidget(this.product,this.catId);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -40,23 +40,23 @@ class ProductWidget extends StatelessWidget {
 
                   InkWell(
                     onTap: () {
-                     AppRouter.NavigateToWidget(UpdateProductScreen(product,catId));
-                     //  // على شان اما اروح هناك يعرضاي ال الاسم جوا التكس فيلد
+                      AppRouter.NavigateToWidget(UpdateProductScreen(product,catId));
+                      //  // على شان اما اروح هناك يعرضاي ال الاسم جوا التكس فيلد
                       Provider.of<FireStoreProvider>(context, listen: false)
                           .productNameController
                           .text = product.name!
                       ;
-                     Provider.of<FireStoreProvider>(context, listen: false)
-                         .productdescriptionController
-                         .text = product.description!
-                     ;
-                     Provider.of<FireStoreProvider>(context, listen: false)
-                         .productpriceController.text = product.price!.toString() ;
-                     ;
-                     Provider.of<FireStoreProvider>(context, listen: false)
-                         .productquantityController
-                         .text = product.quantity!.toString()
-                    ;
+                      Provider.of<FireStoreProvider>(context, listen: false)
+                          .productdescriptionController
+                          .text = product.description!
+                      ;
+                      Provider.of<FireStoreProvider>(context, listen: false)
+                          .productpriceController.text = product.price!.toString() ;
+                      ;
+                      Provider.of<FireStoreProvider>(context, listen: false)
+                          .productquantityController
+                          .text = product.quantity!.toString()
+                      ;
                     },
                     child: Image.asset('asset/image/edit.png',width: 40,height: 40,),
                   ),

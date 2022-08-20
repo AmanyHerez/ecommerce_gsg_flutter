@@ -20,7 +20,14 @@ class AllCategoryCustomerScreen extends StatelessWidget {
         builder: (context, provider, child) {
           return provider.categories == null
               ? const Center(child: CircularProgressIndicator())
-              : ListView.builder(
+              : GridView.builder(
+            scrollDirection:Axis.vertical ,
+            gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 5,
+              crossAxisSpacing: 5,
+              childAspectRatio: 400/500,
+            ) ,
             physics: NeverScrollableScrollPhysics(),
             itemCount: provider.categories!.length,
             shrinkWrap: true,
@@ -42,3 +49,30 @@ class AllCategoryCustomerScreen extends StatelessWidget {
     );
   }
 }
+
+//
+// body: Consumer<FireStoreProvider>(
+// builder: (context, provider, child) {
+// return provider.categories == null
+// ? const Center(child: CircularProgressIndicator())
+//     : GridView.builder(
+// gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(
+// crossAxisCount: 2,
+// mainAxisSpacing: 10,
+// crossAxisSpacing: 10,
+// ) ,
+// itemCount: provider.categories!.length,
+// itemBuilder: (context, index) {
+// return InkWell(
+// onTap: () {
+// provider
+//     .getAllProduct(provider.categories![index].catId);
+// AppRouter.NavigateToWidget(AllProductScreen(
+// provider.categories![index].catId));
+// },
+// child: CategoryWidget(provider.categories![index]),
+// );
+// },
+// );
+// },
+// ),

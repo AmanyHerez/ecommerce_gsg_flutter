@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:string_validator/string_validator.dart';
 
+import '../views/home/home_admin_screen.dart';
 import '../views/home/home_screen.dart';
 
 class AuthProvider extends ChangeNotifier {
@@ -52,7 +53,7 @@ class AuthProvider extends ChangeNotifier {
       UserCredential? credential = await AuthHelper.authHelper
           .signIn(emailController.text, passwordController.text);
       if (credential != null) {
-        AppRouter.NavigateWithReplacemtnToWidget(CategoriesScreen());
+        AppRouter.NavigateWithReplacemtnToWidget(HomeAdminScreen());
       }
 
     }

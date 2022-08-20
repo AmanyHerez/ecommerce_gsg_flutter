@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../constants/constants.dart';
 class CustomeTextFeildProductWidget extends StatelessWidget {
   TextEditingController controller;
    String title;
@@ -11,6 +13,10 @@ class CustomeTextFeildProductWidget extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
         hintText: title,
+        hintStyle: TextStyle(
+          color: KlightgreeyColor,
+          fontFamily: 'Courgette-Regular',
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
         ),

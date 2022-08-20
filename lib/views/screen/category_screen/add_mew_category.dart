@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../constants/constants.dart';
 import '../../../provider/firestore_provider.dart';
 
 class AddCategoryScreen extends StatelessWidget {
@@ -9,7 +10,16 @@ class AddCategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Add New Category')),
+      appBar: AppBar(title: Text('Add New Category', style: TextStyle(
+        color: Colors.black87,
+        fontFamily: 'Courgette-Regular',
+        fontWeight: FontWeight.bold,
+      ),
+      ),
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        iconTheme:IconThemeData(color: Colors.black87) ,),
       body: Consumer<FireStoreProvider>(
         builder: (context, provider, child) {
           return SingleChildScrollView(
@@ -39,26 +49,36 @@ class AddCategoryScreen extends StatelessWidget {
                     height: 30,
                   ),
                   TextField(
+
                     controller: provider.categoryNameController,
                     decoration: InputDecoration(
+                      hintText: "enter name category",
+                      hintStyle: TextStyle( fontFamily: 'Courgette-Regular',),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 40,
+                    height: 60,
                   ),
                   ElevatedButton(
                     onPressed: () {
                       provider.addNewCategory();
                     },
+                    style: ElevatedButton.styleFrom(
+                        primary: KorangeColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        )
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'add new category',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'Courgette-Regular',
                           fontSize: 25,
                         ),
                       ),

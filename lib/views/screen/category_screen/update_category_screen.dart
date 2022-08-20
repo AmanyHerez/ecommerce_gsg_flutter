@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../constants/constants.dart';
 import '../../../provider/firestore_provider.dart';
 
 class UpdateCategoryScreen extends StatelessWidget {
@@ -14,7 +15,16 @@ class UpdateCategoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Update category'),
+        title: Text('Update category', style: TextStyle(
+          color: Colors.black87,
+          fontFamily: 'Courgette-Regular',
+          fontWeight: FontWeight.bold,
+        ),
+        ),
+          centerTitle: true,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          iconTheme:IconThemeData(color: Colors.black87) ,
       ),
       body: Consumer<FireStoreProvider>(
         builder: (context, provider, child) {
@@ -59,11 +69,20 @@ class UpdateCategoryScreen extends StatelessWidget {
                       onPressed: () {
                         provider.updateCategory(category);
                       },
+                      style: ElevatedButton.styleFrom(
+                          primary: KorangeColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18),
+                          )
+                      ),
+
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
                           'update category',
+
                           style: TextStyle(
+                            fontFamily: 'Courgette-Regular',
                             fontWeight: FontWeight.bold,
                             fontSize: 25,
                           ),

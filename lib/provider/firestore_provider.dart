@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:ecommerce_app_gsg/data/fireStore_helper.dart';
@@ -124,10 +125,26 @@ class FireStoreProvider extends ChangeNotifier {
       sliders!.add(newSlider);
     }
   }
-
   getAllSlider() async {
     sliders = await FireStoreHelper.fireStoreHelper.getAllSlider();
     notifyListeners();
+    log(sliders.toString());
+  }
+  updateSlider(SliderModel slider) async {
+    String? imageUrl;
+    if (selectedImage != null) {
+      imageUrl = await StorageHelper.storageHelper.uploadImage(selectedImage!);
+    }
+    SliderModel newSlider = SliderModel(imageUrl: imageUrl ?? slider.imageUrl);
+
+    newSlider.id = slider.id;
+    await FireStoreHelper.fireStoreHelper.updateSlider(slider);
+    getAllSlider();
+  }
+
+  deleteSlider(SliderModel slider) async {
+    await FireStoreHelper.fireStoreHelper.deleteSlider(slider);
+    getAllSlider();
   }
 
 // insertNewCategory(){

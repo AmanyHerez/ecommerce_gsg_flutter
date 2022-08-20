@@ -108,6 +108,15 @@ class FireStoreHelper {
 
     return sliders;
   }
+  deleteSlider(SliderModel slider) async {
+    await categoriesCollectionReferance.doc(slider.id).delete();
+  }
+
+  updateSlider(SliderModel slider) async {
+    await categoriesCollectionReferance
+        .doc(slider.id)
+        .update(slider.toMap());
+  }
 
 // insertDummyDataInFireStore()async{
 //   FirestoreInstance.collection(categoreyCollelctionName).add({"nameAr":"طعام","nameAr":"طعام","nameEn":"food","imageUrl":"http://image.jpg",});

@@ -2,6 +2,7 @@ import 'package:ecommerce_app_gsg/views/screen/product_screen/product_widget.dar
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../constants/constants.dart';
 import '../../../provider/firestore_provider.dart';
 import '../../../router/router.dart';
 import 'add_product_screen.dart';
@@ -15,13 +16,23 @@ class AllProductScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('All products'),
+        title: Text('All products', style: TextStyle(
+          color: Colors.black87,
+          fontFamily: 'Courgette-Regular',
+          fontWeight: FontWeight.bold,
+        ),
+        ),
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        iconTheme:IconThemeData(color: Colors.black87) ,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
          AppRouter.NavigateToWidget(AddProductScreen(catId));
         },
-        child: Icon(Icons.add),
+        backgroundColor: KorangeColor,
+        child: Icon(Icons.add,size: 30,),
       ),
       body: Consumer<FireStoreProvider>(
         builder: (context, provider, child) {

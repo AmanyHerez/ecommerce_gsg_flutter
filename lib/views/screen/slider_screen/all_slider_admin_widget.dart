@@ -1,16 +1,15 @@
-import 'package:ecommerce_app_gsg/models/category.dart';
-import 'package:ecommerce_app_gsg/provider/firestore_provider.dart';
-import 'package:ecommerce_app_gsg/router/router.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:ecommerce_app_gsg/views/screen/slider_screen/update_slider_admin.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../screen/category_screen/update_category_screen.dart';
+import '../../../models/slider_model.dart';
+import '../../../provider/firestore_provider.dart';
+import '../../../router/router.dart';
 
-class CategoryWidget extends StatelessWidget {
-  Category category;
+class AllSliderAdminWidget extends StatelessWidget {
+  SliderModel slider;
 
-  CategoryWidget(this.category);
+  AllSliderAdminWidget(this.slider);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +26,7 @@ class CategoryWidget extends StatelessWidget {
               height: 200,
               width: MediaQuery.of(context).size.width,
               child: Image.network(
-                category.imageUrl!,
+                slider.imageUrl!,
                 fit: BoxFit.cover,
               ),
             ),
@@ -40,16 +39,9 @@ class CategoryWidget extends StatelessWidget {
                     width: 10,
                   ),
 
-                  Text(category.name!),
-                  Spacer(),
-
                   InkWell(
                     onTap: () {
-                      AppRouter.NavigateToWidget(UpdateCategoryScreen(category));
-                      // على شان اما اروح هناك يعرضاي ال الاسم جوا التكس فيلد
-                      Provider.of<FireStoreProvider>(context, listen: false)
-                          .categoryNameController
-                          .text = category.name!;
+                      AppRouter.NavigateToWidget(UpdateSliderAdminScreen(slider));
                     },
                     child: Image.asset(
                       'asset/image/edit.png',
@@ -65,7 +57,7 @@ class CategoryWidget extends StatelessWidget {
                   InkWell(
                     onTap: () {
                       Provider.of<FireStoreProvider>(context, listen: false)
-                          .deleteCategory(category);
+                          .deleteSlider(slider);
                     },
                     child: Image.asset(
                       'asset/image/delete.png',

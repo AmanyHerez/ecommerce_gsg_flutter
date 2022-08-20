@@ -37,6 +37,7 @@ class SignUpScreen extends StatelessWidget {
                       'Create a new account',
                       style: TextStyle(
                         color: KblackColor,
+                          fontFamily: 'Courgette-Regular',
                         fontSize: 30,
                         fontWeight: FontWeight.bold
                       ),
@@ -45,6 +46,7 @@ class SignUpScreen extends StatelessWidget {
                     Text(
                       'please put your information below to create a new account for using app',
                       style: TextStyle(
+                        fontFamily: 'Courgette-Regular',
                         color: KBoldgreeyColor,
                         height: 1.5,
                       ),
@@ -90,6 +92,7 @@ class SignUpScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(12.0),
                           child: Text('Register Now',style: TextStyle(
                             color: Colors.white,
+                            fontFamily: 'Courgette-Regular',
                             fontSize: 18,
                           ),),
                         ),
@@ -101,6 +104,7 @@ class SignUpScreen extends StatelessWidget {
                       children: [
                         Text('Already have an account? ',style: TextStyle(
                           color: Colors.black87,
+                          fontFamily: 'Courgette-Regular',
                         ),),
                         InkWell(
                           onTap: (){
@@ -108,6 +112,7 @@ class SignUpScreen extends StatelessWidget {
                           },
                           child: Text('Sign in',style: TextStyle(
                             color: KorangeColor,
+                            fontFamily: 'Courgette-Regular',
                           ),),
                         ),
                       ],

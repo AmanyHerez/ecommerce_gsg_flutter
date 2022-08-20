@@ -5,7 +5,7 @@ import 'package:ecommerce_app_gsg/data/storage_helper.dart';
 import 'package:ecommerce_app_gsg/provider/auth_provider.dart';
 import 'package:ecommerce_app_gsg/provider/firestore_provider.dart';
 import 'package:ecommerce_app_gsg/router/router.dart';
-import 'package:ecommerce_app_gsg/views/home/testing_screen.dart';
+import 'package:ecommerce_app_gsg/views/home/carusal_slider_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -24,8 +24,14 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("E-Commerce"),
-        centerTitle: true,
+        title: Text("E-Commerce",style: TextStyle(color: Colors.black87),),
+      centerTitle: true,
+      iconTheme: IconThemeData(
+        color: Colors.black87,
+      ),
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+
         actions: [
           IconButton(
             onPressed: () {
@@ -51,8 +57,10 @@ class HomeScreen extends StatelessWidget {
                        style: TextStyle(
                          fontWeight: FontWeight.bold,
                          fontSize: 20,
+                         fontFamily: 'Courgette-Regular',
                        ),
                      ),
+
                      // Spacer(),
                      // TextButton(
                      //   onPressed: () {
@@ -70,6 +78,7 @@ class HomeScreen extends StatelessWidget {
                      // ),
                    ],
                  ),
+                 SizedBox(height: 10,),
                  AllCategoryCustomerScreen(),
                  // SizedBox(
                  //   height: 115,

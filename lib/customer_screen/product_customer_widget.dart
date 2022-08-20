@@ -9,11 +9,12 @@ class ProductCustomerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      padding: const EdgeInsets.only(bottom: 10),
       child: Card(
 
 
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
               height: 200,
@@ -26,15 +27,20 @@ class ProductCustomerWidget extends StatelessWidget {
             SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.all(6.0),
-              child: Row(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
                     width: 10,
                   ),
 
                   Text(product.name!),
+                  SizedBox(height: 5,),
+                  Text("${product.price!} \$"),
+
                 ],
               ),
+
             ),
           ],
         ),

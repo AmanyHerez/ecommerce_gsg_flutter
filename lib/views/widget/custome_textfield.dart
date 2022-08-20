@@ -21,16 +21,16 @@ class CustomTextfield extends StatelessWidget {
     // TODO: implement build
     return TextFormField(
       keyboardType: textInputType,
-
       controller: controller,
       validator: (x) => validator(x),
       decoration: InputDecoration(
         filled: true,
-        fillColor:KgreeyColor,
+        fillColor: KgreeyColor,
         suffixIcon: suffix,
         hintText: title,
         hintStyle: TextStyle(
           color: KlightgreeyColor,
+          fontFamily: 'Courgette-Regular',
         ),
         border: OutlineInputBorder(
           borderSide: BorderSide.none,

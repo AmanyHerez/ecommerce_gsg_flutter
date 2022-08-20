@@ -11,20 +11,22 @@ class ForgetPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: SafeArea(
         child: Consumer(
           builder: (context, AuthProvider provider, child) {
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
                     child: Container(
-
-                      child: Image.asset("asset/image/logo.png",width: 220,height: 200,fit: BoxFit.cover,),
-
+                      child: Image.asset(
+                        "asset/image/logo.png",
+                        width: 220,
+                        height: 200,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   Text(
@@ -32,13 +34,16 @@ class ForgetPasswordScreen extends StatelessWidget {
                     style: TextStyle(
                         color: KblackColor,
                         fontSize: 30,
-                        fontWeight: FontWeight.bold
-                    ),
+                        fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Text(
                     'please enter your email address below to recover password',
+
                     style: TextStyle(
+                      fontFamily: 'Courgette-Regular',
                       color: KBoldgreeyColor,
                       height: 1.5,
                     ),
@@ -52,19 +57,29 @@ class ForgetPasswordScreen extends StatelessWidget {
                     controller: provider.emailController,
                     textInputType: TextInputType.emailAddress,
                   ),
-                  SizedBox(height: 30,),
+                  SizedBox(
+                    height: 30,
+                  ),
                   SizedBox(
                     width: double.infinity,
-                    child: ElevatedButton(onPressed: (){
-                      provider.forgetPassword();
-                    },
+                    child: ElevatedButton(
+                      onPressed: () {
+                        provider.forgetPassword();
+                      },
                       style: ElevatedButton.styleFrom(
                         primary: KorangeColor,
-
-                      ),child: Padding(
+                      ),
+                      child: Padding(
                         padding: const EdgeInsets.all(12.0),
-                        child: Text('Recover password',style: TextStyle(fontSize: 20,),),
-                      ),),
+                        child: Text(
+                          'Recover password',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontFamily: 'Courgette-Regular',
+                          ),
+                        ),
+                      ),
+                    ),
                   )
                 ],
               ),

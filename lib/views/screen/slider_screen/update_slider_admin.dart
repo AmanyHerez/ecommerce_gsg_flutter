@@ -1,23 +1,24 @@
-import 'package:ecommerce_app_gsg/models/product.dart';
+import 'package:ecommerce_app_gsg/models/category.dart';
+import 'package:ecommerce_app_gsg/models/slider_model.dart';
+import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../constants/constants.dart';
 import '../../../provider/firestore_provider.dart';
-import '../../widget/custome_textfeild_product.dart';
 
-class UpdateProductScreen extends StatelessWidget {
-  Product product;
-  String catId;
+class UpdateSliderAdminScreen extends StatelessWidget {
+  SliderModel slider;
 
-  UpdateProductScreen(this.product, this.catId);
+  UpdateSliderAdminScreen(this.slider);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'update product',
+          'Update slider',
           style: TextStyle(
             color: Colors.black87,
             fontFamily: 'Courgette-Regular',
@@ -34,7 +35,7 @@ class UpdateProductScreen extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 20,
-              vertical: 80,
+              vertical: 130,
             ),
             child: SingleChildScrollView(
               child: Column(
@@ -45,9 +46,9 @@ class UpdateProductScreen extends StatelessWidget {
                             provider.selectImage();
                           },
                           child: CircleAvatar(
-                            radius: 80,
+                            radius: 100,
                             backgroundColor: Colors.red,
-                            backgroundImage: NetworkImage(product.image!),
+                            backgroundImage: NetworkImage(slider.imageUrl!),
                           ),
                         )
                       : CircleAvatar(
@@ -57,50 +58,32 @@ class UpdateProductScreen extends StatelessWidget {
                   SizedBox(
                     height: 30,
                   ),
-                  CustomeTextFeildProductWidget(
-                      title: 'enter your name product',
-                      controller: provider.productNameController),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomeTextFeildProductWidget(
-                      title: 'enter your description',
-                      controller: provider.productdescriptionController),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomeTextFeildProductWidget(
-                      title: 'enter your price',
-                      controller: provider.productpriceController),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomeTextFeildProductWidget(
-                      title: 'enter your quantity',
-                      controller: provider.productquantityController),
+
                   SizedBox(
                     height: 30,
                   ),
-                  ElevatedButton(
-                      onPressed: () {
-                        provider.updateProduct(product, catId);
-                      },
-                      style: ElevatedButton.styleFrom(
-                          primary: KorangeColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18),
-                          )),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'update Product',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Courgette-Regular',
-                            fontSize: 25,
+                  Center(
+                    child: ElevatedButton(
+                        onPressed: () {
+                          provider.updateSlider(slider);
+                        },
+                        style: ElevatedButton.styleFrom(
+                            primary: KorangeColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18),
+                            )),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'update Slider',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Courgette-Regular',
+                              fontSize: 25,
+                            ),
                           ),
-                        ),
-                      ))
+                        )),
+                  )
                   // Center(
                   //   child: ElevatedButton(
                   //     onPressed: () {
@@ -113,7 +96,8 @@ class UpdateProductScreen extends StatelessWidget {
                   // Center(
                   //   child: ElevatedButton(
                   //     onPressed: () async {
-                  //      XFile? xfile=await ImagePicker().pickImage(source: ImageSource.gallery);
+                  //      XFile? xfile=aw
+                  //      ait ImagePicker().pickImage(source: ImageSource.gallery);
                   //      String url=await StorageHelper.storageHelper.uploadImage(File(xfile!.path));
                   //      log(url);
                   //     },

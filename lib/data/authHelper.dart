@@ -6,6 +6,7 @@ import 'package:ecommerce_app_gsg/views/widget/custome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../views/auth/screen/sign_up_screen.dart';
+import '../views/home/home_admin_screen.dart';
 import '../views/home/home_screen.dart';
 
 class AuthHelper {
@@ -20,7 +21,7 @@ class AuthHelper {
       AppRouter.NavigateWithReplacemtnToWidget(SignInScreen());
     }
     else{
-      AppRouter.NavigateWithReplacemtnToWidget(CategoriesScreen());
+      AppRouter.NavigateWithReplacemtnToWidget(HomeAdminScreen());
     }
   }
 
