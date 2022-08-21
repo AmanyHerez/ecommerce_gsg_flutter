@@ -7,38 +7,51 @@ import 'package:provider/provider.dart';
 import '../provider/firestore_provider.dart';
 import '../router/router.dart';
 import 'details_product_screen.dart';
-class AllProductCustomerScreen extends StatelessWidget {
 
+class AllProductCustomerScreen extends StatelessWidget {
   String? catId;
 
-
   AllProductCustomerScreen(this.catId);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('product',style: TextStyle(color: Colors.black87),),centerTitle: true,
+      appBar: AppBar(
+        title: Text(
+          'product',
+          style: TextStyle(
+            color: Colors.black87,
+            fontFamily: 'Courgette-Regular',
+          ),
+        ),
+        centerTitle: true,
         iconTheme: IconThemeData(
           color: Colors.black87,
         ),
         elevation: 0,
-
-        backgroundColor: Colors.transparent,),
-      body: Consumer<FireStoreProvider>(
-        builder: (context, provider, child) {
-          return provider.products == null
-              ? const Center(child: CircularProgressIndicator())
-              : ListView.builder(
-            itemCount: provider.products!.length,
-            itemBuilder: (context, index) {
-              return InkWell(
-                  onTap: (){
-                    //AddProductScreen(provider.categories![index].catId
-                     AppRouter.NavigateToWidget(DetailsProductScreen());
-                  },
-                  child: ProductCustomerWidget(provider.products![index],catId!));
-            },
-          );
-        },
+        backgroundColor: Colors.transparent,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+        child: Consumer<FireStoreProvider>(
+          builder: (context, provider, child) {
+            return provider.products == null
+                ? const Center(child: CircularProgressIndicator())
+                : ListView.builder(
+                    itemCount: provider.products!.length,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                          onTap: () {
+                            //AddProductScreen(provider.categories![index].catId
+                            AppRouter.NavigateToWidget(DetailsProductScreen(
+                                provider.products![index].id));
+                          },
+                          child: ProductCustomerWidget(
+                              provider.products![index], catId!));
+                    },
+                  );
+          },
+        ),
       ),
     );
   }

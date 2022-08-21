@@ -14,7 +14,10 @@ class ProductWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: Card(
-
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
 
         child: Column(
           children: [
@@ -35,7 +38,7 @@ class ProductWidget extends StatelessWidget {
                     width: 10,
                   ),
 
-                  Text(product.name!),
+                  Text(product.name!,style: TextStyle( fontFamily: 'Courgette-Regular',fontSize: 26),),
                   Spacer(),
 
                   InkWell(

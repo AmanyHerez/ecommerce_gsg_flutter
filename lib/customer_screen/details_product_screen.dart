@@ -5,6 +5,9 @@ import 'package:provider/provider.dart';
 
 import 'detailsProduct_Widget.dart';
 class DetailsProductScreen extends StatelessWidget {
+ String? id;
+
+ DetailsProductScreen(this.id);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,7 @@ class DetailsProductScreen extends StatelessWidget {
           return ListView.builder(
             itemCount:provider.products!.length ,
               itemBuilder: (context, index) {
-            return DetailsProductWidget(provider.products![index]);
+            return DetailsProductWidget(provider.products![index],id!);
           });
         },
 

@@ -11,35 +11,47 @@ class AllCategoryCustomerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+        child: Stack(
+      children: [
+        CachedNetworkImage(
+          imageUrl: category.imageUrl!,
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          fit: BoxFit.cover,
+        ),
+        Center(
+            child: Text(
+          category.name!,
+          style: TextStyle(
+              fontFamily: 'Courgette-Regular',
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 30),
+        )),
+      ],
+    )
 
-      child: CachedNetworkImage(
-        imageUrl: category.imageUrl!,
-        // width: MediaQuery.of(context).size.width,
-        // height: MediaQuery.of(context).size.height,
-        fit: BoxFit.cover,
-      ),
-
-      // child: Column(
-      //   children: [
-      //     Stack(
-      //       children:[
-      //         SizedBox(
-      //           height: 200,
-      //           width: MediaQuery.of(context).size.width,
-      //           child: Image.network(
-      //             category.imageUrl!,
-      //             fit: BoxFit.cover,
-      //           ),
-      //         ),
-      //         Positioned(
-      //           top: 90,
-      //             left: 140,
-      //             child: Center(child: Text(category.name!,style: TextStyle(color: Colors.white,fontSize: 25,),))),
-      //       ]
-      //     ),
-      //
-      //   ],
-      // ),
-    );
+        // child: Column(
+        //   children: [
+        //     Stack(
+        //       children:[
+        //         SizedBox(
+        //           height: 200,
+        //           width: MediaQuery.of(context).size.width,
+        //           child: Image.network(
+        //             category.imageUrl!,
+        //             fit: BoxFit.cover,
+        //           ),
+        //         ),
+        //         Positioned(
+        //           top: 90,
+        //             left: 140,
+        //             child: Center(child: Text(category.name!,style: TextStyle(color: Colors.white,fontSize: 25,),))),
+        //       ]
+        //     ),
+        //
+        //   ],
+        // ),
+        );
   }
 }

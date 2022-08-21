@@ -40,7 +40,7 @@ class CategoryWidget extends StatelessWidget {
                     width: 10,
                   ),
 
-                  Text(category.name!),
+                  Text(category.name!,style: TextStyle(fontFamily: 'Courgette-Regular',fontSize: 26),),
                   Spacer(),
 
                   InkWell(

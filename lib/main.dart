@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
         //key: AppRouter.navKey,
        //home: SplachScreen(),
 //home:ButtonSlider(),
-      home: HomeScreen(),
+    home: HomeScreen(),
       ),
     );
   }

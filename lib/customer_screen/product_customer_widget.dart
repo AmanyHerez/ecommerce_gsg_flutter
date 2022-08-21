@@ -34,9 +34,9 @@ class ProductCustomerWidget extends StatelessWidget {
                     width: 10,
                   ),
 
-                  Text(product.name!),
+                  Text(product.name!,style: TextStyle(fontFamily: 'Courgette-Regular',fontWeight: FontWeight.bold,fontSize: 26),),
                   SizedBox(height: 5,),
-                  Text("${product.price!} \$"),
+                  Text("${product.price!} \$",style: TextStyle(fontFamily: 'Courgette-Regular',fontWeight: FontWeight.bold),),
 
                 ],
               ),
