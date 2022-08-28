@@ -15,9 +15,7 @@ class FireStoreProvider extends ChangeNotifier {
     getAllCategories();
     getAllSlider();
   }
-
   TextEditingController categoryNameController = TextEditingController();
-
   TextEditingController productNameController = TextEditingController();
   TextEditingController productdescriptionController = TextEditingController();
   TextEditingController productpriceController = TextEditingController();
@@ -43,7 +41,9 @@ class FireStoreProvider extends ChangeNotifier {
       Category newCategory =
           await FireStoreHelper.fireStoreHelper.addNewCategory(category);
       selectedImage = null;
+
       categories!.add(newCategory);
+      categories=null;
     }
   }
 
@@ -88,7 +88,10 @@ class FireStoreProvider extends ChangeNotifier {
       );
    Product newProduct=   await FireStoreHelper.fireStoreHelper.addNewProduct(product, catId);
     selectedImage=null;
+    products=null;
+    categories=null;
     products?.add(newProduct);
+
     }
   }
 

@@ -4,6 +4,7 @@ import 'package:ecommerce_app_gsg/customer_screen/product_customer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../models/product.dart';
 import '../provider/firestore_provider.dart';
 import '../router/router.dart';
 import 'details_product_screen.dart';
@@ -11,7 +12,12 @@ import 'details_product_screen.dart';
 class AllProductCustomerScreen extends StatelessWidget {
   String? catId;
 
-  AllProductCustomerScreen(this.catId);
+  //
+  // Product? product;
+
+  AllProductCustomerScreen(this.catId,
+     // {this.product}
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +38,7 @@ class AllProductCustomerScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Consumer<FireStoreProvider>(
           builder: (context, provider, child) {
             return provider.products == null
@@ -44,7 +50,7 @@ class AllProductCustomerScreen extends StatelessWidget {
                           onTap: () {
                             //AddProductScreen(provider.categories![index].catId
                             AppRouter.NavigateToWidget(DetailsProductScreen(
-                                provider.products![index].id));
+                                provider.products![index]));
                           },
                           child: ProductCustomerWidget(
                               provider.products![index], catId!));

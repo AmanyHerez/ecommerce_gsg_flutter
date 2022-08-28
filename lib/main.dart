@@ -43,9 +43,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         navigatorKey: AppRouter.navKey,
         //key: AppRouter.navKey,
-       //home: SplachScreen(),
+      //home: SplachScreen(),
 //home:ButtonSlider(),
-    home: HomeScreen(),
+   home: HomeScreen(),
       ),
     );
   }

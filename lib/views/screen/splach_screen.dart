@@ -20,11 +20,13 @@ class SplachScreen extends StatelessWidget {
       children: [
         Stack(children: [
           Container(
-            child: Image.asset(
-              "asset/image/bg.png",
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              fit: BoxFit.cover,
+            child: Center(
+              child: Image.asset(
+                "asset/image/bg.png",
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                fit: BoxFit.cover,
+              ),
             ),
 
             // decoration: BoxDecoration(
@@ -33,25 +35,25 @@ class SplachScreen extends StatelessWidget {
             //       image: AssetImage("asset/image/bg.png"),
             //     )),
           ),
-          Positioned(
-            left: 50,
-            bottom: 460,
-            child: Text(
-              ' Grocery',
-              style: TextStyle(
-                fontSize: 51,
-                color:KorangeColor,
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 420,
-            left: 150,
-            child: Text('  Store',
-              style: TextStyle(
-                fontSize: 45,
-              ),),
-          ),
+          // Positioned(
+          //   left: 50,
+          //   bottom: 460,
+          //   child: Text(
+          //     ' Grocery',
+          //     style: TextStyle(
+          //       fontSize: 51,
+          //       color:KorangeColor,
+          //     ),
+          //   ),
+          // ),
+          // Positioned(
+          //   bottom: 420,
+          //   left: 150,
+          //   child: Text('  Store',
+          //     style: TextStyle(
+          //       fontSize: 45,
+          //     ),),
+          // ),
         ])
       ],
     ));

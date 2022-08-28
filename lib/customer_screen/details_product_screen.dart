@@ -3,13 +3,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../models/product.dart';
 import 'detailsProduct_Widget.dart';
 class DetailsProductScreen extends StatelessWidget {
- String? id;
+     Product? product;
+     DetailsProductScreen(this.product);
 
- DetailsProductScreen(this.id);
-
-  @override
+     @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -23,13 +23,8 @@ class DetailsProductScreen extends StatelessWidget {
       ),
       body: Consumer<FireStoreProvider>(
         builder: (context, provider, child) {
-          return ListView.builder(
-            itemCount:provider.products!.length ,
-              itemBuilder: (context, index) {
-            return DetailsProductWidget(provider.products![index],id!);
-          });
+          return DetailsProductWidget(product!);
         },
-
       ),
     );
   }

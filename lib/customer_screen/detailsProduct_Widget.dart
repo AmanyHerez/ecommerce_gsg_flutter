@@ -6,8 +6,8 @@ import '../models/product.dart';
 
 class DetailsProductWidget extends StatelessWidget {
   Product product;
-  String id;
-  DetailsProductWidget(this.product,this.id);
+
+  DetailsProductWidget(this.product);
 
   @override
   Widget build(BuildContext context) {
